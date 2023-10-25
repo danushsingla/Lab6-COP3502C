@@ -1,4 +1,5 @@
-# Danush Singla
+# Danush Singla - Encode
+# Nicholas Blauz - Decode
 
 def encode(password):               # encodes the password
     encoded_password = ""
@@ -12,9 +13,14 @@ def encode(password):               # encodes the password
 
     return encoded_password
 
-def decode():
-    pass
+def decode(encoded_password):
+    original_password = ""
 
+    for num in encoded_password:
+        decoded_num = str((int(num) - 3) % 10)
+        original_password += decoded_num
+
+    return original_password
 
 def print_menu():                    # prints the menu
     print("Menu")
@@ -41,5 +47,6 @@ if __name__ == '__main__':
         if option == 2:                     # decodes
             decoded_password = decode(encoded_password)
             print(f"The encoded password is {encoded_password}, and the original password is {decoded_password}.")
+            print("")
         if option == 3:
             quit()                          # quits the program
